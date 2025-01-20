@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+body{
+    overflow: hidden;
+    background-color: #ebdad14f;
+    font-family: 'Dancing Script', cursive;
+
+}
+.box{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+}
+.box::before{
+    position: absolute;
+    background-color: #e69c9f;
+    width: 100px;
+    height: 100px;
+    content: '';
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0 40%, 50% 0, 100% 40%, 100% 100%, 0 100%);
+}
+.box::after{
+    position: absolute;
+    width: 100px;
+    background-color: #000;
+    content: '';
+    height: 10px;
+    bottom: -30px;
+    opacity: 0.4;
+    filter: blur(10px);
+    left: 0;
+}
+.card{
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -10px);
+    height: 80px;
+    transition: 0.5s ;
+    background-color: #ffffff;
+
+}
+.designbox{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #d26f72;
+    display: block;
+    clip-path: polygon(0 0, 50% 35%, 100% 0,100% 100%,0 100%);
+}
+.designbox::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background-color: #bd5559;
+    content: '';
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+/* .box:hover .card{
+    transform: translate(-50%, -30%);
+} */
+
+input:checked ~ .card{
+    
+    bottom: 110px;
+    width: 640px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-70%);
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+    background-color: rgba(0, 0,0,0);
+}
+input:checked ~ .card:hover{
+     transform: rotate(-5deg);
+     transform: translate(-50%);
+
+}
+input:checked ~ .card:hover .outside{
+    transform: rotateY(-130deg);
+}
+
+.outside,
+.inside {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 50.1%;
+
+}
+
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+  line-height: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+}
+.inside p{
+    line-height: 30px;
+    padding: 10px 10px;
+
+}
+.outside {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: 2s;
+  cursor: pointer;
+}
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.front {
+  background-color: #ffffff;
+ 
+}
+.front img{
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+}
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+}
+
+.outside h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: black;
+  
+}
+.inside h2 {
+  font-size: 120px;
+  line-height: 120px;
+}
+
+
+.hidden{
+ display: none;
+
+}
+input:checked ~ .card .hidden{
+display: inline;
+opacity: 1;
+}
+.inside{
+  text-align: left;
+}
+.bi-balloon-heart-fill{
+    color: red;
+}
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <audio id="player" autoplay loop>
+            <source src="./happy_birthday_to_you_always_14_amee_x_hoang_dung_x_obito_x_hua_kim_tuyen_6395027981642307256.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <div class="message">
+
+        <div class="box">
+            <input type="checkbox" name="" id="message"   >
+            <div class="card">
+                <div class="hidden">
+                    <div class="outside">
+                        <div class="front">
+                            <h1 class="title">Happy Birthday <i class="bi bi-cake2"></i> </h1>
+                            <img src="b.png" alt="">
+                        </div>
+                        <div class="back">
+                            
+                        </div>
+                    </div>
+                    <div class="inside">
+                        <p>Gửi Ngọc Ánh <br> " Hôm nay là ngày 21/1/2025, Tất cả những bông hoa sinh ra từ ngày hôm nay đều rất đẹp, nhưng trong số đó có 1 bông hoa  rất xinh đẹp và ngọt ngào đó chính là bạn đấy.Chúc bạn có ngày sinh nhật đáng nhớ, thật hạnh phúc và luôn luôn tươi cười như những bông hoa  nhé !" <br>
+                       <br><B>HAPPY BIRTHDAY!</B><i class="bi bi-balloon-heart-fill"></i> </p> 
+                        
+                    </div>
+                </div>
+<!--             <label for="message">Close</label>
+ -->            </div>
+
+            <label for="message" class="designbox"></label>
+        </div>
+    </div>
+</body>
+<script src="./Untitled-1.js"></script>
+</html>
